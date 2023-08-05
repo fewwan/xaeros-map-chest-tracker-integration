@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fewwan.xaerosmapchesttrackerintegration.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "MixinChestTracker",
+    "MixinClearSearch"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
