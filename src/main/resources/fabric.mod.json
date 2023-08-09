@@ -1,17 +1,18 @@
 {
   "schemaVersion": 1,
-  "id": "xaeros-map-chest-tracker-integration",
+  "id": "${id}",
   "version": "${version}",
-  "name": "Xaero's Map Chest Tracker Integration",
-  "description": "Show Chest Tracker results as temporary waypoints.",
+  "name": "${name}",
+  "description": "Show Chest Tracker results in Xaero's map.",
   "authors": [
     "Fewwan"
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/xaeros-map-chest-tracker-integration",
+    "issues": "https://github.com/fewwan/xaeros-map-chest-tracker-integration/issues",
     "sources": "https://github.com/fewwan/xaeros-map-chest-tracker-integration"
   },
-  "license": "MIT",
+  "license": "LGPL v3",
   "icon": "assets/xaeros-map-chest-tracker-integration/icon.png",
   "environment": "client",
   "entrypoints": {
@@ -23,11 +24,12 @@
     "xaeros-map-chest-tracker-integration.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": ">=0.13.0",
     "fabric": "*",
-    "minecraft": "${minecraft_version}",
-    "chesttracker": ">=1.1.0",
-    "xaeroworldmap": ">=1.31.0"
+    "minecraft": "${minecraft_dependency}",
+    "chesttracker": "${chesttracker_dependency}",
+    "whereisit": "${whereisit_dependency}",
+    "xaerominimap": "${xaerominimap_dependency}"
   },
   "suggests": {
     "modmenu": "*"
