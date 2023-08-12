@@ -15,19 +15,30 @@ plugins {
 }
 
 preprocess {
-	def mc191      = createNode('1.19.1'  , 1_19_01, 'yarn')
-	def mc192      = createNode('1.19.2'  , 1_19_02, 'yarn')
-	def mc193      = createNode('1.19.3'  , 1_19_03, 'yarn')
-	def mc194      = createNode('1.19.4'  , 1_19_04, 'yarn')
-	def mc200      = createNode('1.20'    , 1_20_00, 'yarn')
-	def mc201      = createNode('1.20.1'  , 1_20_01, 'yarn')
+	def mc191           = createNode('1.19.1'       , 1_19_01, 'yarn')
+	def mc191_fair      = createNode('1.19.1_fair'  , 1_19_01, 'yarn')
+	def mc192           = createNode('1.19.2'       , 1_19_02, 'yarn')
+	def mc192_fair      = createNode('1.19.2_fair'  , 1_19_02, 'yarn')
+	def mc193           = createNode('1.19.3'       , 1_19_03, 'yarn')
+	def mc193_fair      = createNode('1.19.3_fair'  , 1_19_03, 'yarn')
+	def mc194           = createNode('1.19.4'       , 1_19_04, 'yarn')
+	def mc194_fair      = createNode('1.19.4_fair'  , 1_19_04, 'yarn')
+	def mc200           = createNode('1.20'         , 1_20_00, 'yarn')
+	def mc200_fair      = createNode('1.20_fair'    , 1_20_00, 'yarn')
+	def mc201           = createNode('1.20.1'       , 1_20_01, 'yarn')
+	def mc201_fair      = createNode('1.20.1_fair'  , 1_20_01, 'yarn')
 
-	mc192.link(mc191, null)
-	mc192.link(mc193, null)
-	mc193.link(mc194, null)
-	mc194.link(mc200, null)
-	mc200.link(mc201, null)
-
+	mc191_fair.link(mc191, null)
+	mc192.link(mc191_fair, null)
+	mc192_fair.link(mc192, null)
+	mc193.link(mc192_fair, null)
+	mc193_fair.link(mc193, null)
+	mc194.link(mc193_fair, null)
+	mc194_fair.link(mc194, null)
+	mc200.link(mc194_fair, null)
+	mc200_fair.link(mc200, null)
+	mc201.link(mc200_fair, null)
+	mc201_fair.link(mc201, null)
 }
 
 tasks.register('buildAndGather') {

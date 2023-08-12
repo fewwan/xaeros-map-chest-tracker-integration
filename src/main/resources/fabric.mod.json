@@ -29,7 +29,7 @@
     "minecraft": "${minecraft_dependency}",
     "chesttracker": "${chesttracker_dependency}",
     "whereisit": "${whereisit_dependency}",
-    "xaerominimap": "${xaerominimap_dependency}"
+    "${xaeromap}": "${xaeromap_dependency}"
   },
   "suggests": {
     "modmenu": "*"

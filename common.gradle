@@ -6,9 +6,12 @@ apply plugin: 'com.replaymod.preprocess'
 apply plugin: 'me.fallenbreath.yamlang'
 
 int mcVersion = project.mcVersion
+boolean fairVersion = project.use_fair_version.trim().toBoolean()
 
 preprocess {
 	tabIndentation = true
+	vars.put("MC", mcVersion)
+	vars.put("FAIR", fairVersion ? 1 : 0)
 }
 
 repositories {
@@ -46,17 +49,12 @@ dependencies {
 	modImplementation "maven.modrinth:modmenu:${project.modmenu_version}"
 	modImplementation "io.github.cottonmc:LibGui:${project.libgui_version}"
 
-	modImplementation "maven.modrinth:xaeros-minimap:${project.xaeros_minimap_version}"
 	modImplementation "maven.modrinth:xaeros-world-map:${project.xaeros_world_map_version}"
-
-	implementation 'org.jetbrains:annotations:16.0.2'
-	// runtime mods
-//	if (mcVersion < 11904) {
-//		modRuntimeOnly(mcVersion < 11900 ? "com.github.astei:lazydfu:0.1.2" : "com.github.Fallen-Breath:lazydfu:a7cfc44c0c")
-//	}
-
-	// dependencies
-//	include(modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_api_version)))
+	if (fairVersion) {
+		modImplementation "maven.modrinth:xaeros-minimap-fair:${project.xaeros_minimap_fair_version}"
+	} else {
+		modImplementation "maven.modrinth:xaeros-minimap:${project.xaeros_minimap_version}"
+	}
 }
 
 loom {
@@ -88,11 +86,11 @@ String versionSuffix = ''
 // https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
 if (System.getenv("BUILD_RELEASE") != "true") {
 	String buildNumber = System.getenv("BUILD_ID")
-	versionSuffix += buildNumber != null ? ('+build.' + buildNumber) : '-SHAPSHOT'
+	versionSuffix += buildNumber != null ? ('+build.' + buildNumber) : '-SNAPSHOT'
 }
 String fullModVersion = project.mod_version + versionSuffix
 
-version = 'v' + fullModVersion
+version = 'v' + (fairVersion ? 'FP' : '') + fullModVersion
 group = project.maven_group
 archivesBaseName = project.archives_base_name + '-mc' + project.minecraft_version
 
@@ -115,7 +113,10 @@ processResources {
 				"minecraft_dependency": project.minecraft_dependency,
 				"chesttracker_dependency": project.chesttracker_dependency,
 				"whereisit_dependency": project.whereisit_dependency,
-				"xaerominimap_dependency": project.xaerominimap_dependency,
+
+				// Can't do it with the preprocessor
+				"xaeromap": fairVersion ? "xaerominimapfair" : "xaerominap",
+				"xaeromap_dependency": fairVersion ? project.xaerominimap_fair_dependency : project.xaerominimap_dependency,
 		]
 		expand valueMap
 	}
