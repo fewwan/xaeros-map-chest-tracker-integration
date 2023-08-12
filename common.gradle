@@ -115,7 +115,7 @@ processResources {
 				"whereisit_dependency": project.whereisit_dependency,
 
 				// Can't do it with the preprocessor
-				"xaeromap": fairVersion ? "xaerominimapfair" : "xaerominap",
+				"xaeromap": fairVersion ? "xaerominimapfair" : "xaerominimap",
 				"xaeromap_dependency": fairVersion ? project.xaerominimap_fair_dependency : project.xaerominimap_dependency,
 		]
 		expand valueMap
