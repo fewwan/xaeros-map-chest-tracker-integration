@@ -5,13 +5,12 @@ apply plugin: 'io.github.juuxel.loom-quiltflower'
 apply plugin: 'com.replaymod.preprocess'
 apply plugin: 'me.fallenbreath.yamlang'
 
+boolean includeMinimap = false
 int mcVersion = project.mcVersion
-boolean fairVersion = project.use_fair_version.trim().toBoolean()
 
 preprocess {
 	tabIndentation = true
 	vars.put("MC", mcVersion)
-	vars.put("FAIR", fairVersion ? 1 : 0)
 }
 
 repositories {
@@ -50,11 +49,18 @@ dependencies {
 	modImplementation "io.github.cottonmc:LibGui:${project.libgui_version}"
 
 	modImplementation "maven.modrinth:xaeros-world-map:${project.xaeros_world_map_version}"
-	if (fairVersion) {
-		modImplementation "maven.modrinth:xaeros-minimap-fair:${project.xaeros_minimap_fair_version}"
-	} else {
+
+	if (includeMinimap) {
 		modImplementation "maven.modrinth:xaeros-minimap:${project.xaeros_minimap_version}"
+	} else {
+		modCompileOnly  "maven.modrinth:xaeros-minimap:${project.xaeros_minimap_version}"
 	}
+
+	include(modImplementation("com.github.Fallen-Breath:conditional-mixin:${project.conditionalmixin_version}"))
+	implementation("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")
+	annotationProcessor("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")
+
+	annotationProcessor(include(implementation("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")))
 }
 
 loom {
@@ -90,7 +96,7 @@ if (System.getenv("BUILD_RELEASE") != "true") {
 }
 String fullModVersion = project.mod_version + versionSuffix
 
-version = 'v' + (fairVersion ? 'FP' : '') + fullModVersion
+version = 'v' + fullModVersion
 group = project.maven_group
 archivesBaseName = project.archives_base_name + '-mc' + project.minecraft_version
 
@@ -113,10 +119,6 @@ processResources {
 				"minecraft_dependency": project.minecraft_dependency,
 				"chesttracker_dependency": project.chesttracker_dependency,
 				"whereisit_dependency": project.whereisit_dependency,
-
-				// Can't do it with the preprocessor
-				"xaeromap": fairVersion ? "xaerominimapfair" : "xaerominimap",
-				"xaeromap_dependency": fairVersion ? project.xaerominimap_fair_dependency : project.xaerominimap_dependency,
 		]
 		expand valueMap
 	}

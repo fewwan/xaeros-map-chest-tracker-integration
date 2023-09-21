@@ -20,6 +20,9 @@
 
 package fewwan.xaerosmapchesttrackerintegration.mixins;
 
+import fewwan.xaerosmapchesttrackerintegration.util.mixin.testers.XaeroMinimapTester;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -31,6 +34,9 @@ import xaero.common.minimap.waypoints.WaypointsManager;
 
 import java.util.List;
 
+@Restriction(
+        require = @Condition(type = Condition.Type.TESTER, tester = XaeroMinimapTester.class)
+)
 @Mixin(red.jackf.whereisit.client.RenderUtils.class)
 public class MixinClearSearch {
     @Inject(method = "clearSlotSearch", at = @At("HEAD"), remap = false)

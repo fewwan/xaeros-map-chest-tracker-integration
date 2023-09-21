@@ -18,7 +18,7 @@
  * along with "Xaero's Map Chest Tracker Integration".  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package fewwan.xaerosmapchesttrackerintegration.utils;
+package fewwan.xaerosmapchesttrackerintegration.util;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class Utils {
+public class CountUtils {
     static final Set<Item> shulkerBoxes = Set.of(
             Items.SHULKER_BOX,
             Items.WHITE_SHULKER_BOX,

@@ -8,7 +8,7 @@
 
 This mod extends [Chest Tracker](https://modrinth.com/mod/chest-tracker) functionality, showing the results in [Xaero's World map](https://modrinth.com/mod/xaeros-world-map).
 
-If you use [Xaero's Minimap (Fair-Play)](https://modrinth.com/mod/xaeros-minimap-fair), use the version of my mod that starts with FP.
+This mod is compatible with Xaero's Minimap, Better PVP, and their fair versions. 
 
 ![In game waypoint](https://cdn.discordapp.com/attachments/1137770761696854186/1137773285090795541/image.png)
 

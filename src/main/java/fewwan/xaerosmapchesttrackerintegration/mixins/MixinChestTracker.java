@@ -20,7 +20,10 @@
 
 package fewwan.xaerosmapchesttrackerintegration.mixins;
 
-import fewwan.xaerosmapchesttrackerintegration.utils.Utils;
+import fewwan.xaerosmapchesttrackerintegration.util.CountUtils;
+import fewwan.xaerosmapchesttrackerintegration.util.mixin.testers.XaeroMinimapTester;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.item.Item;
@@ -40,6 +43,9 @@ import xaero.common.minimap.waypoints.WaypointsManager;
 
 import java.util.List;
 
+@Restriction(
+        require = @Condition(type = Condition.Type.TESTER, tester = XaeroMinimapTester.class)
+)
 @Mixin(red.jackf.chesttracker.ChestTracker.class)
 public class MixinChestTracker {
     @Inject(method = "searchForItem", at = @At("HEAD"))
@@ -61,7 +67,7 @@ public class MixinChestTracker {
         List<Memory> memories = database.findItems(stack, world.getRegistryKey().getValue());
         for (Memory memory : memories) {
             List<ItemStack> items = memory.getItems();
-            int totalItemCount = Utils.countItemsOf(items, searchItem);
+            int totalItemCount = CountUtils.countItemsOf(items, searchItem);
 
             BlockPos position = memory.getPosition();
             int x = position.getX();
