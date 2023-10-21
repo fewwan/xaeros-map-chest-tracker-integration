@@ -21,6 +21,9 @@
     ],
     "client": [
       "fewwan.xaerosmapchesttrackerintegration.XaerosMapChestTrackerIntegration"
+    ],
+    "whereisit_client": [
+      "fewwan.xaerosmapchesttrackerintegration.plugin.WhereIsItXaerosMapChestTrakerIntegrationPlugin"
     ]
   },
   "mixins": [
@@ -36,5 +39,15 @@
   "suggests": {
     "modmenu": "*",
     "xaeroworldmap": "*"
+  },
+  "custom": {
+    "xaeros-map-chest-tracker-integration": {
+      "validXaerosMinimap": {
+        "xaerominimap": "${xaerominimap_dependency}",
+        "xaerominimapfair": "${xaerominimapfair_dependency}",
+        "xaerobetterpvp": "${xaerobetterpvp_dependency}",
+        "xaerobetterpvpfair": "${xaerobetterpvpfair_dependency}"
+      }
+    }
   }
 }
