@@ -7,8 +7,6 @@
   "mixins": [
   ],
   "client": [
-    "MixinChestTracker",
-    "MixinClearSearch",
     "MixinTitleScreen"
   ],
   "injectors": {

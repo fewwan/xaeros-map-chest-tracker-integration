@@ -15,18 +15,7 @@ plugins {
 }
 
 preprocess {
-	def mc191 = createNode('1.19.1'       , 1_19_01, 'yarn')
-	def mc192 = createNode('1.19.2'       , 1_19_02, 'yarn')
-	def mc193 = createNode('1.19.3'       , 1_19_03, 'yarn')
-	def mc194 = createNode('1.19.4'       , 1_19_04, 'yarn')
-	def mc200 = createNode('1.20'         , 1_20_00, 'yarn')
-	def mc201 = createNode('1.20.1'       , 1_20_01, 'yarn')
-
-	mc192.link(mc191, null)
-	mc193.link(mc192, null)
-	mc194.link(mc193, null)
-	mc200.link(mc194, null)
-	mc201.link(mc200, null)
+	def mc202 = createNode('1.20.2' , 1_20_02, 'yarn')
 }
 
 tasks.register('buildAndGather') {

@@ -46,25 +46,24 @@ public class MixinTitleScreen extends Screen {
 
     @Inject(method = "init", at = @At("RETURN"))
     public void NoMinimapFoundScreen(CallbackInfo ci) {
-        if (ModCheckUtils.isXaeroModLoaded()) {
-            return;
-        }
+        if (ModCheckUtils.isXaeroMinimapModLoaded()) return;
+
         MinecraftClient.getInstance().setScreen(new ConfirmScreen(
-            confirmed -> {
-                if (confirmed) {
-                    try {
-                        Util.getOperatingSystem().open(new URI("https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap"));
-                    } catch (URISyntaxException e) {
-                        throw new RuntimeException(e);
+                confirmed -> {
+                    if (confirmed) {
+                        try {
+                            Util.getOperatingSystem().open(new URI("https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap"));
+                        } catch (URISyntaxException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        MinecraftClient.getInstance().stop();
                     }
-                } else {
-                    MinecraftClient.getInstance().stop();
-                }
-            },
-            Text.literal("Error Xaero's Map Chest Tracker Integration").setStyle(Style.EMPTY.withColor(Formatting.RED)),
-            Text.literal("This mod requires Xaero's Minimap to work properly."),
-            Text.literal("Download"),
-            Text.literal("Close")
+                },
+                Text.literal("Error Xaero's Map Chest Tracker Integration").setStyle(Style.EMPTY.withColor(Formatting.RED)),
+                Text.literal("This mod requires Xaero's Minimap to work properly."),
+                Text.literal("Download"),
+                Text.literal("Close")
         ));
     }
 }

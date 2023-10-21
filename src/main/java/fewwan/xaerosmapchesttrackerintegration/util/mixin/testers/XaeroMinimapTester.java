@@ -26,6 +26,6 @@ import me.fallenbreath.conditionalmixin.api.mixin.ConditionTester;
 public class XaeroMinimapTester implements ConditionTester {
     @Override
     public boolean isSatisfied(String mixinClassName) {
-        return ModCheckUtils.isXaeroModLoaded();
+        return ModCheckUtils.isXaeroMinimapModLoaded();
     }
 }
