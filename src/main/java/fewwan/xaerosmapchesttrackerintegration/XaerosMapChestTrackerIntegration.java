@@ -28,6 +28,7 @@ public class XaerosMapChestTrackerIntegration implements ClientModInitializer {
     public static final String MOD_ID = "xaeros-map-chest-tracker-integration";
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
+
     @Override
     public void onInitializeClient() {
 

@@ -42,6 +42,16 @@ repositories {
 		}
 	}
 
+	// YACL Snapshots
+	maven {
+		name = "Xander Snapshot Maven"
+		url = uri("https://maven.isxander.dev/snapshots")
+		content {
+			includeGroup("dev.isxander.yacl")
+		}
+	}
+
+
 	// YACL Dependencies
 	maven {
 		name = "Sonatype"
@@ -133,9 +143,9 @@ dependencies {
 
 	modImplementation "red.jackf:whereisit:${project.where_is_it_version}"
 	modImplementation "red.jackf:chesttracker:${project.chest_tracker_version}"
-	modImplementation "red.jackf.jackfredlib:jackfredlib:${project.jackfredlib_version}"
 
 	modImplementation "dev.isxander.yacl:yet-another-config-lib-fabric:${project.yet_another_config_lib_version}"
+	modImplementation "com.blamejared.searchables:Searchables-fabric-${project.searchables_version}"
 
 	modImplementation "maven.modrinth:modmenu:${project.modmenu_version}"
 

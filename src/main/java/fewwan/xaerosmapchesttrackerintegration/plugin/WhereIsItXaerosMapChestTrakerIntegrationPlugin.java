@@ -44,15 +44,9 @@ import java.util.Map;
 
 
 public class WhereIsItXaerosMapChestTrakerIntegrationPlugin implements WhereIsItClientPlugin {
-    private static boolean running = false;
     private static final String suffix = " [CT]";
     private static final int colorId = 0;
-
-    @Override
-    public void load() {
-        OnResult.EVENT.register(WhereIsItXaerosMapChestTrakerIntegrationPlugin::onResults);
-        OnResultsCleared.EVENT.register(WhereIsItXaerosMapChestTrakerIntegrationPlugin::OnResultsCleared);
-    }
+    private static boolean running = false;
 
     private static void onResults(Collection<SearchResult> results) {
         running = true;
@@ -102,5 +96,11 @@ public class WhereIsItXaerosMapChestTrakerIntegrationPlugin implements WhereIsIt
         final List<Waypoint> waypoints = waypointSet.getList();
 
         waypoints.removeIf(waypoint -> waypoint.isTemporary() && waypoint.getName().endsWith(suffix));
+    }
+
+    @Override
+    public void load() {
+        OnResult.EVENT.register(WhereIsItXaerosMapChestTrakerIntegrationPlugin::onResults);
+        OnResultsCleared.EVENT.register(WhereIsItXaerosMapChestTrakerIntegrationPlugin::OnResultsCleared);
     }
 }

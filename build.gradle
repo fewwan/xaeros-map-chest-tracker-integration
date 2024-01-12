@@ -16,6 +16,11 @@ plugins {
 
 preprocess {
 	def mc202 = createNode('1.20.2' , 1_20_02, 'yarn')
+	def mc203 = createNode('1.20.3' , 1_20_03, 'yarn')
+	def mc204 = createNode('1.20.4' , 1_20_04, 'yarn')
+
+	mc203.link(mc202, null)
+	mc204.link(mc203, null)
 }
 
 tasks.register('buildAndGather') {
