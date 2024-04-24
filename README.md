@@ -10,9 +10,10 @@ This mod extends [Chest Tracker](https://modrinth.com/mod/chest-tracker) functio
 
 This mod is compatible with Xaero's Minimap, Better PVP, and their fair versions. 
 
-![In game waypoint](https://cdn.discordapp.com/attachments/1137770761696854186/1137773285090795541/image.png)
+![In game waypoint](https://github.com/fewwan/xaeros-map-chest-tracker-integration/assets/57836708/eeef4732-5453-4d2f-8a52-a31f3720268d)
 
-![Image of the map](https://cdn.discordapp.com/attachments/1137770761696854186/1137773888990887988/image.png)
+![Image of the map](https://github.com/fewwan/xaeros-map-chest-tracker-integration/assets/57836708/f37adc81-8957-4161-82d5-3101c0916529)
+
 
 ### Requirements:
 * [ChestTracker](https://modrinth.com/mod/chest-tracker)
