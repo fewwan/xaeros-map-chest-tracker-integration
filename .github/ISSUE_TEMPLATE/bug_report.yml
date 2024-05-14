@@ -1,6 +1,7 @@
 name: Bug Report
 description: Something doesn't seem correct and it might be a bug
-labels: []
+labels: [bug]
+assignees: [fewwan]
 body:
   - type: textarea
     id: description
@@ -51,7 +52,7 @@ body:
     attributes:
       label: Minecraft version
       description: The Minecraft version(s) where this bug occurs in.
-      placeholder: 1.15.2
+      placeholder: 1.20.2
     validations:
       required: true
   - type: input
@@ -59,13 +60,29 @@ body:
     attributes:
       label: Xaero's Map Chest Tracker Integration version
       description: The Xaero's Map Chest Tracker Integration version(s) where this bug occurs in.
-      placeholder: 1.2.3
+      placeholder: 2.0.1
     validations:
       required: true
+  - type: input
+    id: chest-tracker-version
+    attributes:
+      label: Chest Tracker version (optional)
+      description: The Chest Tracker version(s) where this bug occurs in.
+      placeholder: 2.4.2
+    validations:
+      required: false
+  - type: input
+    id: xaeros-map-version
+    attributes:
+      label: Xaero's Map version (optional)
+      description: The Xaero's Map version(s) where this bug occurs in.
+      placeholder: 24.1.1
+    validations:
+      required: false
   - type: textarea
     id: other-information
     attributes:
-      label: Other information
+      label: Other information (optional)
       description: Other useful information to this bug report, e.g. other related mod version(s). Leave empty if there is none.
       placeholder: The issue only occurs if the player is in survival mode
   - type: checkboxes
