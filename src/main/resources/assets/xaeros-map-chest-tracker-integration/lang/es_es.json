@@ -1,0 +1,6 @@
+{
+  "xaeros-map-chest-tracker-integration.noMinimapFound.title": "Error no se encontró ninguna versión válida de Xaero's Map",
+  "xaeros-map-chest-tracker-integration.noMinimapFound.message": "Xaero's Map Chest Tracker Integration requiere Xaero's Minimap para funcionar correctamente",
+  "xaeros-map-chest-tracker-integration.noMinimapFound.yesText": "Descargar",
+  "xaeros-map-chest-tracker-integration.noMinimapFound.noText": "Cerrar"
+}

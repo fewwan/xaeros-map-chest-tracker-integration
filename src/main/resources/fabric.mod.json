@@ -20,14 +20,14 @@
       "fewwan.xaerosmapchesttrackerintegration.util.bootstrap.XaerosMapChestTrackerIntegrationPreLaunchEntrypoint"
     ],
     "client": [
-      "fewwan.xaerosmapchesttrackerintegration.XaerosMapChestTrackerIntegration"
+      "fewwan.xaerosmapchesttrackerintegration.XaerosMapChestTrackerIntegrationClient"
     ],
     "whereisit_client": [
       "fewwan.xaerosmapchesttrackerintegration.plugin.WhereIsItXaerosMapChestTrakerIntegrationPlugin"
     ]
   },
   "mixins": [
-    "xaeros-map-chest-tracker-integration.mixins.json"
+    "xaeros-map-chest-tracker-integration.client.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.13.0",

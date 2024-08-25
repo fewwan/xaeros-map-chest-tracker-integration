@@ -1,24 +1,4 @@
-/*
- * This file is part of the Xaero's Map Chest Tracker Integration project, licensed under the
- * GNU Lesser General Public License v3.0
- *
- * Copyright (C) 2023  Fewwan and contributors
- *
- * Xaero's Map Chest Tracker Integration is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Xaero's Map Chest Tracker Integration is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with Xaero's Map Chest Tracker Integration.  If not, see <https://www.gnu.org/licenses/>.
- */
-
-package fewwan.xaerosmapchesttrackerintegration.mixins;
+package fewwan.xaerosmapchesttrackerintegration.mixin.client;
 
 import fewwan.xaerosmapchesttrackerintegration.util.ModCheckUtils;
 import net.minecraft.client.MinecraftClient;
@@ -60,10 +40,10 @@ public class MixinTitleScreen extends Screen {
                         MinecraftClient.getInstance().stop();
                     }
                 },
-                Text.literal("Error Xaero's Map Chest Tracker Integration").setStyle(Style.EMPTY.withColor(Formatting.RED)),
-                Text.literal("This mod requires Xaero's Minimap to work properly."),
-                Text.literal("Download"),
-                Text.literal("Close")
+                Text.translatable("xaeros-map-chest-tracker-integration.noMinimapFound.title").setStyle(Style.EMPTY.withColor(Formatting.RED)),
+                Text.translatable("xaeros-map-chest-tracker-integration.noMinimapFound.message"),
+                Text.translatable("xaeros-map-chest-tracker-integration.noMinimapFound.yesText"),
+                Text.translatable("xaeros-map-chest-tracker-integration.noMinimapFound.noText")
         ));
     }
 }
