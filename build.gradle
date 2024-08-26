@@ -231,7 +231,7 @@ publishMods {
 	version = "mc${project.minecraft_version}-v${fullModVersion}"
 
 	curseforge {
-		accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+		accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
 		projectId = "899132"
 		clientRequired = true
 		minecraftVersions.add(minecraft_version)
@@ -239,7 +239,7 @@ publishMods {
 		optional("xaeros-world-map")
 	}
 	modrinth {
-		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+		accessToken = providers.environmentVariable("MODRINTH_API_KEY")
 		projectId = "XhOTBzVR"
 		minecraftVersions.add(minecraft_version)
 		requires("fabric-api", "chest-tracker", "xaeros-minimap")
