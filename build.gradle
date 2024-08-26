@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '1.7-SNAPSHOT'
 	id 'maven-publish'
+	id 'me.modmuss50.mod-publish-plugin' version '0.7.0'
 }
 
 version = project.mod_version
@@ -217,5 +218,36 @@ publishing {
 		// Notice: This block does NOT have the same function as the block in the top level.
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
+	}
+}
+
+publishMods {
+	file = remapJar.archiveFile
+	changelog = file("changelog.md").text
+	type = STABLE
+	modLoaders.add("fabric")
+
+	displayName = "${project.mod_name} v${fullModVersion} for mc${project.minecraft_version}"
+	version = "mc${project.minecraft_version}-v${fullModVersion}"
+
+	curseforge {
+		accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+		projectId = "899132"
+		clientRequired = true
+		minecraftVersions.add(minecraft_version)
+		requires("fabric-api", "chest-tracker", "xaeros-minimap")
+		optional("xaeros-world-map")
+	}
+	modrinth {
+		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+		projectId = "XhOTBzVR"
+		minecraftVersions.add(minecraft_version)
+		requires("fabric-api", "chest-tracker", "xaeros-minimap")
+		optional("xaeros-world-map")
+	}
+	github {
+		accessToken = providers.environmentVariable("GITHUB_TOKEN")
+		repository = "fewwan/xaeros-map-chest-tracker-integration"
+		commitish = "${project.minecraft_version}"
 	}
 }

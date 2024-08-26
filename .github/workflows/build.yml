@@ -15,6 +15,11 @@ jobs:
           21,    # Current Java LTS
         ]
     runs-on: ubuntu-22.04
+
+    env:
+      BUILD_RELEASE: false
+      BUILD_ID: ${{ github.run_number }}
+
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
