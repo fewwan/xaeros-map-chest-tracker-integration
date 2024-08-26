@@ -236,7 +236,7 @@ publishMods {
 		projectId = "899132"
 		clientRequired = true
 		serverRequired = false
-		minecraftVersions.addAll(project.supported_minecraft_versions.split(','))
+		minecraftVersions.addAll(project.supported_minecraft_versions.split(',').collect { it.trim() })
 		javaVersions.add(JavaVersion.VERSION_17)
 		requires("fabric-api", "chest-tracker", "xaeros-minimap")
 		optional("xaeros-world-map")
@@ -244,7 +244,7 @@ publishMods {
 	modrinth {
 		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
 		projectId = "XhOTBzVR"
-		minecraftVersions.addAll(project.supported_minecraft_versions.split(','))
+		minecraftVersions.addAll(project.supported_minecraft_versions.split(',').collect { it.trim() })
 		requires("fabric-api", "chest-tracker", "xaeros-minimap")
 		optional("xaeros-world-map")
 	}
