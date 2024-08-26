@@ -131,7 +131,7 @@ dependencies {
 	modImplementation "red.jackf:chesttracker:${project.chest_tracker_version}"
 
 	modImplementation "dev.isxander:yet-another-config-lib:${project.yet_another_config_lib_version}"
-	modImplementation "com.blamejared.searchables:Searchables-fabric-${project.searchables_version}"
+	modCompileOnly "com.blamejared.searchables:Searchables-fabric-${project.searchables_version}"
 
 	modImplementation "maven.modrinth:modmenu:${project.modmenu_version}"
 
@@ -226,6 +226,7 @@ publishMods {
 	changelog = file("changelog.md").text
 	type = STABLE
 	modLoaders.add("fabric")
+	modLoaders.add("quilt")
 
 	displayName = "${project.mod_name} v${fullModVersion} for mc${project.minecraft_version}"
 	version = "mc${project.minecraft_version}-v${fullModVersion}"
@@ -234,14 +235,16 @@ publishMods {
 		accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
 		projectId = "899132"
 		clientRequired = true
-		minecraftVersions.add(minecraft_version)
+		serverRequired = false
+		minecraftVersions.addAll(project.supported_minecraft_versions.split(','))
+		javaVersions.add(JavaVersion.VERSION_17)
 		requires("fabric-api", "chest-tracker", "xaeros-minimap")
 		optional("xaeros-world-map")
 	}
 	modrinth {
 		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
 		projectId = "XhOTBzVR"
-		minecraftVersions.add(minecraft_version)
+		minecraftVersions.addAll(project.supported_minecraft_versions.split(','))
 		requires("fabric-api", "chest-tracker", "xaeros-minimap")
 		optional("xaeros-world-map")
 	}
