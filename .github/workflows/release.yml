@@ -12,7 +12,10 @@ jobs:
       options: --user root
     steps:
       - uses: actions/checkout@v4
-      - run: ./gradlew build publishMods
+      - name: Set execute permissions for gradlew
+        run: chmod +x gradlew
+      - name: Build and Publish Mods
+        run: ./gradlew build publishMods
         env:
           CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
