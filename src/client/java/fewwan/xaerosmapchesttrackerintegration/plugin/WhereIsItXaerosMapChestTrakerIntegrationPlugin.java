@@ -37,23 +37,17 @@ public class WhereIsItXaerosMapChestTrakerIntegrationPlugin implements WhereIsIt
     private static Item searchItem = null;
 
     private static Item getItemFromSearchRequest(SearchRequest request) {
-        NbtCompound packedRequest = request.pack();
+        NbtList criterionList = request.toTag();
 
-        if (packedRequest.contains(SearchRequest.DATA, NbtElement.LIST_TYPE)) {
-            NbtList criterionList = packedRequest.getList(SearchRequest.DATA, NbtElement.COMPOUND_TYPE);
-            for (NbtElement element : criterionList) {
-                if (element instanceof NbtCompound compound) {
-                    if (compound.contains(SearchRequest.ID, NbtElement.STRING_TYPE) &&
-                            "whereisit:item".equals(compound.getString("Id"))) {
-                        if (compound.contains(SearchRequest.DATA, NbtElement.COMPOUND_TYPE)) {
-                            NbtCompound data = compound.getCompound(SearchRequest.DATA);
-                            if (data.contains("ItemId", NbtElement.STRING_TYPE)) {
-                                String itemId = data.getString("ItemId");
-                                Identifier itemIdentifier = Identifier.tryParse(itemId);
-                                if (itemIdentifier != null) {
-                                    return Registries.ITEM.get(itemIdentifier);
-                                }
-                            }
+        for (NbtElement element : criterionList) {
+            if (element instanceof NbtCompound compound) {
+                if (compound.contains("type", NbtElement.STRING_TYPE) &&
+                        "whereisit:item".equals(compound.getString("type"))) {
+                    if (compound.contains("item", NbtElement.STRING_TYPE)) {
+                        String itemId = compound.getString("item");
+                        Identifier itemIdentifier = Identifier.tryParse(itemId);
+                        if (itemIdentifier != null) {
+                            return Registries.ITEM.get(itemIdentifier);
                         }
                     }
                 }
