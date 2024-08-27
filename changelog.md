@@ -1,1 +1,1 @@
-Improved recursive search
+Resolved a bug where searching for a second item after an initial search incorrectly displayed locations of both items on the map.
