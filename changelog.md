@@ -1,1 +1,1 @@
-Initial 1.21 commit
+Resolved a bug where searching for a second item after an initial search incorrectly displayed locations of both items on the map.

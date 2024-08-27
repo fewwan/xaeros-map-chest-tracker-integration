@@ -100,6 +100,7 @@ public class WhereIsItXaerosMapChestTrakerIntegrationPlugin implements WhereIsIt
     private static void onResultsCleared() {
         if (!running) return;
         running = false;
+        searchItem = null;
 
         XaeroMinimapSession minimapSession = XaeroMinimapSession.getCurrentSession();
         if (minimapSession == null) return;
@@ -111,7 +112,6 @@ public class WhereIsItXaerosMapChestTrakerIntegrationPlugin implements WhereIsIt
         List<Waypoint> waypoints = waypointSet.getList();
         waypoints.removeIf(waypoint -> waypoint.isTemporary() && waypoint.getName().endsWith(SUFFIX));
     }
-
 
     @Override
     public void load() {
