@@ -1,156 +1,156 @@
 plugins {
-	id 'fabric-loom' version '1.7-SNAPSHOT'
-	id 'maven-publish'
-	id 'me.modmuss50.mod-publish-plugin' version '0.7.0'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'maven-publish'
+    id 'me.modmuss50.mod-publish-plugin' version '0.7.0'
 }
 
 version = project.mod_version
 group = project.maven_group
 
 base {
-	archivesName = project.archives_base_name
+    archivesName = project.archives_base_name
 }
 
 repositories {
-	mavenCentral()
-	maven {
-		url 'https://www.cursemaven.com'
-	}
-	maven {
-		name = "Modrinth"
-		url = "https://api.modrinth.com/maven"
-	}
+    mavenCentral()
+    maven {
+        url 'https://www.cursemaven.com'
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
 
-	// Mod Menu
-	maven {
-		name = "TerraformersMC"
-		url = uri("https://maven.terraformersmc.com/releases/")
-		content {
-			includeGroup("com.terraformersmc")
-		}
-	}
+    // Mod Menu
+    maven {
+        name = "TerraformersMC"
+        url = uri("https://maven.terraformersmc.com/releases/")
+        content {
+            includeGroup("com.terraformersmc")
+        }
+    }
 
-	// YACL
-	maven {
-		name = "Xander Maven"
-		url = uri("https://maven.isxander.dev/releases")
-		content {
-			includeGroupAndSubgroups("dev.isxander")
-		}
-	}
+    // YACL
+    maven {
+        name = "Xander Maven"
+        url = uri("https://maven.isxander.dev/releases")
+        content {
+            includeGroupAndSubgroups("dev.isxander")
+        }
+    }
 
-	// YACL Snapshots
-	maven {
-		name = "Xander Snapshot Maven"
-		url = uri("https://maven.isxander.dev/snapshots")
-		content {
-			includeGroupAndSubgroups("dev.isxander")
-		}
-	}
+    // YACL Snapshots
+    maven {
+        name = "Xander Snapshot Maven"
+        url = uri("https://maven.isxander.dev/snapshots")
+        content {
+            includeGroupAndSubgroups("dev.isxander")
+        }
+    }
 
-	maven {
-		name = "QuiltMC"
-		url = uri("https://maven.quiltmc.org/repository/release")
-		content {
-			includeGroupAndSubgroups("org.quiltmc")
-		}
-	}
+    maven {
+        name = "QuiltMC"
+        url = uri("https://maven.quiltmc.org/repository/release")
+        content {
+            includeGroupAndSubgroups("org.quiltmc")
+        }
+    }
 
-	// Searchables
-	maven {
-		name = "BlameJared"
-		url = uri("https://maven.blamejared.com")
-		content {
-			includeGroupAndSubgroups("com.blamejared.searchables")
-		}
-	}
+    // Searchables
+    maven {
+        name = "BlameJared"
+        url = uri("https://maven.blamejared.com")
+        content {
+            includeGroupAndSubgroups("com.blamejared.searchables")
+        }
+    }
 
-	// Where Is It, JackFredLib
-	maven {
-		name = "JackFredMaven"
-		url = uri("https://maven.jackf.red/releases/")
-		content {
-			includeGroupAndSubgroups("red.jackf")
-		}
-	}
+    // Where Is It, JackFredLib
+    maven {
+        name = "JackFredMaven"
+        url = uri("https://maven.jackf.red/releases/")
+        content {
+            includeGroupAndSubgroups("red.jackf")
+        }
+    }
 
-	// Shulker Box Tooltip
-	maven {
-		name = "MisterPeModder"
-		url = uri("https://maven.misterpemodder.com/libs-release/")
-		content {
-			includeGroupAndSubgroups("com.misterpemodder")
-		}
-	}
+    // Shulker Box Tooltip
+    maven {
+        name = "MisterPeModder"
+        url = uri("https://maven.misterpemodder.com/libs-release/")
+        content {
+            includeGroupAndSubgroups("com.misterpemodder")
+        }
+    }
 
-	// Cloth Config
-	maven {
-		name = "Shedaniel"
-		url = uri("https://maven.shedaniel.me")
-		content {
-			includeGroupAndSubgroups("me.shedaniel")
-		}
-	}
+    // Cloth Config
+    maven {
+        name = "Shedaniel"
+        url = uri("https://maven.shedaniel.me")
+        content {
+            includeGroupAndSubgroups("me.shedaniel")
+        }
+    }
 
-	// WTHIT
-	maven {
-		url  = uri("https://maven2.bai.lol")
-		content {
-			includeGroupAndSubgroups("lol.bai")
-			includeGroupAndSubgroups("mcp.mobius.waila")
-		}
-	}
+    // WTHIT
+    maven {
+        url = uri("https://maven2.bai.lol")
+        content {
+            includeGroupAndSubgroups("lol.bai")
+            includeGroupAndSubgroups("mcp.mobius.waila")
+        }
+    }
 
-	maven {
-		url 'https://jitpack.io'
-	}
+    maven {
+        url 'https://jitpack.io'
+    }
 }
 
 loom {
-	splitEnvironmentSourceSets()
+    splitEnvironmentSourceSets()
 
-	mods {
-		"xaeros-map-chest-tracker-integration" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
+    mods {
+        "xaeros-map-chest-tracker-integration" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
 
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    // To change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // Fabric API. This is technically optional, but you probably want it anyway.
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "red.jackf:whereisit:${project.where_is_it_version}"
-	modImplementation "red.jackf:chesttracker:${project.chest_tracker_version}"
+    modImplementation "red.jackf:whereisit:${project.where_is_it_version}"
+    modImplementation "red.jackf:chesttracker:${project.chest_tracker_version}"
 
-	modImplementation "dev.isxander:yet-another-config-lib:${project.yet_another_config_lib_version}"
-	modImplementation "com.blamejared.searchables:Searchables-fabric-${project.searchables_version}"
+    modImplementation "dev.isxander:yet-another-config-lib:${project.yet_another_config_lib_version}"
+    modImplementation "com.blamejared.searchables:Searchables-fabric-${project.searchables_version}"
 
-	modImplementation "maven.modrinth:modmenu:${project.modmenu_version}"
+    modImplementation "maven.modrinth:modmenu:${project.modmenu_version}"
 
-	modImplementation "maven.modrinth:xaeros-world-map:${project.xaeros_world_map_version}"
-	modImplementation "maven.modrinth:xaeros-minimap:${project.xaeros_minimap_version}"
+    modImplementation "maven.modrinth:xaeros-world-map:${project.xaeros_world_map_version}"
+    modImplementation "maven.modrinth:xaeros-minimap:${project.xaeros_minimap_version}"
 
-	include(modImplementation("com.github.Fallen-Breath:conditional-mixin:${project.conditionalmixin_version}"))
-	implementation("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")
-	annotationProcessor("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")
+    include(modImplementation("com.github.Fallen-Breath:conditional-mixin:${project.conditionalmixin_version}"))
+    implementation("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")
+    annotationProcessor("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")
 
-	annotationProcessor(include(implementation("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")))
+    annotationProcessor(include(implementation("com.github.LlamaLad7:MixinExtras:${project.mixin_extra_version}")))
 }
 
 String versionSuffix = ''
 // detect github action environment variables
 // https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
 if (System.getenv("BUILD_RELEASE") != "true") {
-	String buildNumber = System.getenv("BUILD_ID")
-	versionSuffix += buildNumber != null ? ('+build.' + buildNumber) : '-SNAPSHOT'
+    String buildNumber = System.getenv("BUILD_ID")
+    versionSuffix += buildNumber != null ? ('+build.' + buildNumber) : '-SNAPSHOT'
 }
 String fullModVersion = project.mod_version + versionSuffix
 
@@ -159,95 +159,95 @@ group = project.maven_group
 archivesBaseName = project.archives_base_name + '-mc' + project.minecraft_version
 
 processResources {
-	def valueMap = [
-			"id": project.mod_id,
-			"name": project.mod_name,
-			"version": fullModVersion,
-			"minecraft_version": project.minecraft_version,
-			"loader_version": project.loader_version,
-			"minecraft_dependency": project.minecraft_dependency,
-			"chesttracker_dependency": project.chesttracker_dependency,
-			"whereisit_dependency": project.whereisit_dependency,
-			"xaerominimap_dependency": project.xaerominimap_dependency,
-			"xaerominimapfair_dependency": project.xaerominimapfair_dependency,
-			"xaerobetterpvp_dependency": project.xaerobetterpvp_dependency,
-			"xaerobetterpvpfair_dependency": project.xaerobetterpvpfair_dependency
-	]
+    def valueMap = [
+            "id"                           : project.mod_id,
+            "name"                         : project.mod_name,
+            "version"                      : fullModVersion,
+            "minecraft_version"            : project.minecraft_version,
+            "loader_version"               : project.loader_version,
+            "minecraft_dependency"         : project.minecraft_dependency,
+            "chesttracker_dependency"      : project.chesttracker_dependency,
+            "whereisit_dependency"         : project.whereisit_dependency,
+            "xaerominimap_dependency"      : project.xaerominimap_dependency,
+            "xaerominimapfair_dependency"  : project.xaerominimapfair_dependency,
+            "xaerobetterpvp_dependency"    : project.xaerobetterpvp_dependency,
+            "xaerobetterpvpfair_dependency": project.xaerobetterpvpfair_dependency
+    ]
 
-	valueMap.each { key, value ->
-		inputs.property(key, value)
-	}
+    valueMap.each { key, value ->
+        inputs.property(key, value)
+    }
 
-	filesMatching("fabric.mod.json") {
-		expand(valueMap)
-	}
+    filesMatching("fabric.mod.json") {
+        expand(valueMap)
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+    it.options.release = 17
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-	// if it is present.
-	// If you remove this line, sources will not be generated.
-	withSourcesJar()
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
-	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
-	}
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
 }
 
 // configure the maven publication
 publishing {
-	publications {
-		create("mavenJava", MavenPublication) {
-			artifactId = project.archives_base_name
-			from components.java
-		}
-	}
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = project.archives_base_name
+            from components.java
+        }
+    }
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+        // Notice: This block does NOT have the same function as the block in the top level.
+        // The repositories here will be used for publishing your artifact, not for
+        // retrieving dependencies.
+    }
 }
 
 publishMods {
-	file = remapJar.archiveFile
-	changelog = file("changelog.md").text
-	type = STABLE
-	modLoaders.add("fabric")
+    file = remapJar.archiveFile
+    changelog = file("changelog.md").text
+    type = STABLE
+    modLoaders.add("fabric")
 
-	displayName = "${project.mod_name} v${fullModVersion} for mc${project.minecraft_version}"
-	version = "mc${project.minecraft_version}-v${fullModVersion}"
+    displayName = "${project.mod_name} v${fullModVersion} for mc${project.minecraft_version}"
+    version = "mc${project.minecraft_version}-v${fullModVersion}"
 
-	curseforge {
-		accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
-		projectId = "899132"
-		clientRequired = true
-		minecraftVersions.add(minecraft_version)
-		requires("fabric-api", "chest-tracker", "xaeros-minimap")
-		optional("xaeros-world-map")
-	}
-	modrinth {
-		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
-		projectId = "XhOTBzVR"
-		minecraftVersions.add(minecraft_version)
-		requires("fabric-api", "chest-tracker", "xaeros-minimap")
-		optional("xaeros-world-map")
-	}
-	github {
-		accessToken = providers.environmentVariable("GITHUB_TOKEN")
-		repository = "fewwan/xaeros-map-chest-tracker-integration"
-		commitish = "${project.minecraft_version}"
-	}
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        projectId = "899132"
+        clientRequired = true
+        minecraftVersions.add(minecraft_version)
+        requires("fabric-api", "chest-tracker", "xaeros-minimap")
+        optional("xaeros-world-map")
+    }
+    modrinth {
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        projectId = "XhOTBzVR"
+        minecraftVersions.add(minecraft_version)
+        requires("fabric-api", "chest-tracker", "xaeros-minimap")
+        optional("xaeros-world-map")
+    }
+    github {
+        accessToken = providers.environmentVariable("GITHUB_TOKEN")
+        repository = "fewwan/xaeros-map-chest-tracker-integration"
+        commitish = "${project.minecraft_version}"
+    }
 }

@@ -2,7 +2,6 @@ package fewwan.xaerosmapchesttrackerintegration.plugin;
 
 import fewwan.xaerosmapchesttrackerintegration.util.CountUtils;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;

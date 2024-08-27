@@ -1,53 +1,53 @@
 {
-  "schemaVersion": 1,
-  "id": "${id}",
-  "version": "${version}",
-  "name": "${name}",
-  "description": "Show Chest Tracker results in Xaero's map.",
-  "authors": [
-    "Fewwan"
-  ],
-  "contact": {
-    "homepage": "https://modrinth.com/mod/xaeros-map-chest-tracker-integration",
-    "issues": "https://github.com/fewwan/xaeros-map-chest-tracker-integration/issues",
-    "sources": "https://github.com/fewwan/xaeros-map-chest-tracker-integration"
-  },
-  "license": "LGPL v3",
-  "icon": "assets/xaeros-map-chest-tracker-integration/icon.png",
-  "environment": "client",
-  "entrypoints": {
-    "preLaunch": [
-      "fewwan.xaerosmapchesttrackerintegration.util.bootstrap.XaerosMapChestTrackerIntegrationPreLaunchEntrypoint"
+    "schemaVersion": 1,
+    "id": "${id}",
+    "version": "${version}",
+    "name": "${name}",
+    "description": "Show Chest Tracker results in Xaero's map.",
+    "authors": [
+        "Fewwan"
     ],
-    "client": [
-      "fewwan.xaerosmapchesttrackerintegration.XaerosMapChestTrackerIntegrationClient"
+    "contact": {
+        "homepage": "https://modrinth.com/mod/xaeros-map-chest-tracker-integration",
+        "issues": "https://github.com/fewwan/xaeros-map-chest-tracker-integration/issues",
+        "sources": "https://github.com/fewwan/xaeros-map-chest-tracker-integration"
+    },
+    "license": "LGPL v3",
+    "icon": "assets/xaeros-map-chest-tracker-integration/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "preLaunch": [
+            "fewwan.xaerosmapchesttrackerintegration.util.bootstrap.XaerosMapChestTrackerIntegrationPreLaunchEntrypoint"
+        ],
+        "client": [
+            "fewwan.xaerosmapchesttrackerintegration.XaerosMapChestTrackerIntegrationClient"
+        ],
+        "whereisit_client": [
+            "fewwan.xaerosmapchesttrackerintegration.plugin.WhereIsItXaerosMapChestTrakerIntegrationPlugin"
+        ]
+    },
+    "mixins": [
+        "xaeros-map-chest-tracker-integration.client.mixins.json"
     ],
-    "whereisit_client": [
-      "fewwan.xaerosmapchesttrackerintegration.plugin.WhereIsItXaerosMapChestTrakerIntegrationPlugin"
-    ]
-  },
-  "mixins": [
-    "xaeros-map-chest-tracker-integration.client.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.13.0",
-    "fabric": "*",
-    "minecraft": "${minecraft_dependency}",
-    "chesttracker": "${chesttracker_dependency}",
-    "whereisit": "${whereisit_dependency}"
-  },
-  "suggests": {
-    "modmenu": "*",
-    "xaeroworldmap": "*"
-  },
-  "custom": {
-    "xaeros-map-chest-tracker-integration": {
-      "validXaerosMinimap": {
-        "xaerominimap": "${xaerominimap_dependency}",
-        "xaerominimapfair": "${xaerominimapfair_dependency}",
-        "xaerobetterpvp": "${xaerobetterpvp_dependency}",
-        "xaerobetterpvpfair": "${xaerobetterpvpfair_dependency}"
-      }
+    "depends": {
+        "fabricloader": ">=0.13.0",
+        "fabric": "*",
+        "minecraft": "${minecraft_dependency}",
+        "chesttracker": "${chesttracker_dependency}",
+        "whereisit": "${whereisit_dependency}"
+    },
+    "suggests": {
+        "modmenu": "*",
+        "xaeroworldmap": "*"
+    },
+    "custom": {
+        "xaeros-map-chest-tracker-integration": {
+            "validXaerosMinimap": {
+                "xaerominimap": "${xaerominimap_dependency}",
+                "xaerominimapfair": "${xaerominimapfair_dependency}",
+                "xaerobetterpvp": "${xaerobetterpvp_dependency}",
+                "xaerobetterpvpfair": "${xaerobetterpvpfair_dependency}"
+            }
+        }
     }
-  }
 }
